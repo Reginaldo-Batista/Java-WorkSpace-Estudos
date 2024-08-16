@@ -6,6 +6,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		Scanner sc = new Scanner(System.in);
+
 		// Iniciando da melhor forma
 		System.out.println("Olá, mundo!");
 
@@ -14,15 +16,22 @@ public class Main {
 		}
 		System.out.println();
 
-		Scanner sc = new Scanner(System.in);
 		System.out.println("Insira um número inteiro: ");
 		int x = sc.nextInt();
 		System.out.println("Você digitou: " + x);
-		
+
 		String mensagem = (x >= 0) ? "é positivo" : "é negativo";
-		System.out.println(21 + " " + mensagem);
-		
+		System.out.println(x + " " + mensagem);
+
+		sc.nextLine();
+		String nome = sc.nextLine();
+
+		System.out.println("Seu nome é: " + nome);
+
 		sc.close();
+
+		System.out.println("Fim do programa!");
+
 	}
 
 }
