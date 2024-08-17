@@ -38,10 +38,12 @@ public class Main {
 
 			case 3:
 				System.out.println("Nota 1ª prova: ");
-
+				aluno.setNota1(sc.nextFloat());
 				System.out.println("Nota 2ª prova: ");
-
+				aluno.setNota2(sc.nextFloat());
 				System.out.println("Nota 3ª prova: ");
+				aluno.setNota3(sc.nextFloat());
+				System.out.println("Sua média final é: " + aluno.calcNotaFinal());
 
 				break;
 

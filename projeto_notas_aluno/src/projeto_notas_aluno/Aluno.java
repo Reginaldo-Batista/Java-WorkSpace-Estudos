@@ -13,6 +13,11 @@ public class Aluno {
 	public float calcNecessarioTerceiraProva() {
 		return (105f - this.nota1 * 4 - this.nota2 * 5) / 6f;
 	}
+	
+	public float calcNotaFinal() {
+		return (this.nota1 * 4 + this.nota2 * 5 + this.nota3 * 6) / 15f;
+	}
+	
 
 	public float getNota1() {
 		return nota1;
