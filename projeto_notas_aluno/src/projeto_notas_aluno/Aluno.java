@@ -9,6 +9,10 @@ public class Aluno {
 	public float calcMinimoNecessarioSegundaProva() {
 		return (105 - 60 - this.nota1 * 4) / 5;
 	}
+	
+	public float calcNecessarioTerceiraProva() {
+		return (105f - this.nota1 * 4 - this.nota2 * 5) / 6f;
+	}
 
 	public float getNota1() {
 		return nota1;

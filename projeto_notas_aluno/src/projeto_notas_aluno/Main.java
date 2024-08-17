@@ -30,9 +30,10 @@ public class Main {
 
 			case 2:
 				System.out.println("Nota 1ª prova: ");
-
+				aluno.setNota1(sc.nextFloat());
 				System.out.println("Nota 2ª prova: ");
-
+				aluno.setNota2(sc.nextFloat());
+				System.out.println("Precisará tirar na teceira: " + aluno.calcNecessarioTerceiraProva());
 				break;
 
 			case 3:
