@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-
+		// Testando!
 		Scanner sc = new Scanner(System.in);
 
 		Aluno aluno = new Aluno();
