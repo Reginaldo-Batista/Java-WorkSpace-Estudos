@@ -6,13 +6,15 @@ public class Main {
 
 		Bloco inicio = new Bloco();
 		
-//		inicio.addBlocoInicio(12);
-//		inicio.addBlocoInicio(10);
-//		inicio.addBlocoInicio(5);
-//		inicio.addBlocoInicio(90);
+		inicio.addBlocoInicio(1);
+		inicio.addBlocoInicio(2);
+		inicio.addBlocoInicio(3);
+		inicio.addBlocoInicio(4);
+		
+		inicio.addBlocoFim(5);
+		inicio.addBlocoFim(6);
 		inicio.addBlocoFim(7);
 		
 		inicio.imprimeBlocos();
-
 	}
 }
