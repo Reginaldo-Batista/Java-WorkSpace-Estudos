@@ -7,12 +7,11 @@ public class Main {
 		Bloco inicio = new Bloco();
 		
 		inicio.addBlocoInicio(12);
-		inicio.addBlocoInicio(10);
-		inicio.addBlocoInicio(5);
-		inicio.addBlocoInicio(90);
+//		inicio.addBlocoInicio(10);
+//		inicio.addBlocoInicio(5);
+//		inicio.addBlocoInicio(90);
 		
 		inicio.imprimeBlocos();
 
 	}
-
 }
