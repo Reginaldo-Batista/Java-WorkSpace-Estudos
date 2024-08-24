@@ -3,13 +3,15 @@ package estrutura_de_dados;
 public class Main {
 
 	public static void main(String[] args) {
-		LinkedList inicio;
-		LinkedList a = new LinkedList();
-		a.setValor(21);
-		inicio = a;
+
+		Bloco inicio = new Bloco();
 		
-		System.out.println(inicio.getValor());
+		inicio.addBlocoInicio(12);
+		inicio.addBlocoInicio(10);
+		inicio.addBlocoInicio(5);
+		inicio.addBlocoInicio(90);
 		
+		inicio.imprimeBlocos();
 
 	}
 
