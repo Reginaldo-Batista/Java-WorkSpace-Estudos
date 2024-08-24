@@ -1,2 +1,2 @@
 # Java-WorkSpace-Estudos
-Repositório com projetos de estudo em Java
+Repositório com meus estudos e protótipos feitos na linguagem Java
