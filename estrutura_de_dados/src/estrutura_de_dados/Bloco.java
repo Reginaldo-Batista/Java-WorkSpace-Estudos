@@ -12,6 +12,24 @@ public class Bloco {
 		this.proximo = novoBloco;
 	}
 
+	public void addBlocoFim(int novoValor) {
+		
+		if (this.proximo == null) {
+			this.addBlocoInicio(novoValor);
+		} else {
+			Bloco novoBloco = new Bloco();
+			novoBloco.valor = novoValor;
+			
+			Bloco aux = this.proximo;
+			while (aux.proximo != null) {
+				aux = aux.proximo;
+			}
+			aux.proximo = novoBloco;
+		}
+		
+		
+	}
+
 	public void imprimeBlocos() {
 		
 		if (this.proximo != null) {
