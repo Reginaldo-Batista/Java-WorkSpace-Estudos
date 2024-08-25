@@ -3,7 +3,7 @@ package estrutura_de_dados;
 public class Bloco {
 
 	private int valor;
-	private Bloco proximo;
+	private Bloco proximo = null;
 
 	public int getValor() {
 		return this.valor;
@@ -11,7 +11,6 @@ public class Bloco {
 
 	public Bloco() {
 		this.valor = 0;
-		this.proximo = null;
 	}
 
 	public Bloco(int novoValor) {
