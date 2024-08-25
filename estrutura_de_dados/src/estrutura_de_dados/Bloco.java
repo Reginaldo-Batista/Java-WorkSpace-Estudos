@@ -4,23 +4,22 @@ public class Bloco {
 
 	private int valor;
 	private Bloco proximo;
-	
+
 	public int getValor() {
 		return this.valor;
 	}
-	
+
 	public Bloco() {
 		this.valor = 0;
 		this.proximo = null;
 	}
-	
+
 	public Bloco(int novoValor) {
 		this.valor = novoValor;
 	}
 
 	public void addBlocoInicio(int novoValor) {
-		Bloco novoBloco = new Bloco();
-		novoBloco.valor = novoValor;
+		Bloco novoBloco = new Bloco(novoValor);
 		novoBloco.proximo = this.proximo;
 		this.proximo = novoBloco;
 		this.valor++;
@@ -31,9 +30,7 @@ public class Bloco {
 		if (this.proximo == null) {
 			this.addBlocoInicio(novoValor);
 		} else {
-			Bloco novoBloco = new Bloco();
-			novoBloco.valor = novoValor;
-
+			Bloco novoBloco = new Bloco(novoValor);
 			Bloco aux = this.proximo;
 			while (aux.proximo != null) {
 				aux = aux.proximo;
