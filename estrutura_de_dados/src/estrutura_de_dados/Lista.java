@@ -29,7 +29,7 @@ public class Lista {
 	public void addBlocoInicio(int valor) {
 
 		Bloco novoBloco = new Bloco(valor, this.inicio);
-		inicio = novoBloco;
+		this.inicio = novoBloco;
 		this.numeroDeBlocos++;
 
 	}
