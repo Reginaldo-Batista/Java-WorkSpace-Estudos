@@ -1,7 +1,5 @@
 package estrutura_de_dados;
 
-import java.util.Scanner;
-
 public class Main {
 
 	public static void main(String[] args) {

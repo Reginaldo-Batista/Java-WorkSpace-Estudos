@@ -36,4 +36,9 @@ public class Bloco {
 		this.proximo = proximo;
 	}
 	
+	@Override
+	public String toString() {
+		return "Valor: " + this.valor + "\n";
+	}
+	
 }

@@ -52,5 +52,13 @@ public class Pessoa {
 	public void setEndereço(String endereço) {
 		this.endereço = endereço;
 	}
+	
+	@Override
+	public String toString() {
+		return "Nome: " + nome + "\n" +
+				"Idade: " + idade + "\n" +
+				"CPF: " + cpf + "\n" +
+				"Endereço: " + endereço + "\n";
+	}
 
 }

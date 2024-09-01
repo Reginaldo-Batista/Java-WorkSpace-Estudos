@@ -1,27 +1,17 @@
 package rascunhos_e_testes;
 
-import classes.Administrador;
 import classes.Pessoa;
 
 public class Main {
 
 	public static void main(String[] args) {
+		final int qnt = 3;
+		Pessoa[] pessoas = new Pessoa[qnt];
 
-		Pessoa pessoa = new Pessoa();
-		System.out.println(pessoa.getCpf());
-		System.out.println(pessoa.getEndereço());
-		System.out.println(pessoa.getIdade());
-		System.out.println(pessoa.getNome());
-
-		System.out.println();
-
-		Administrador admin = new Administrador();
-		System.out.println(admin.getCpf());
-		System.out.println(admin.getEndereço());
-		System.out.println(admin.getIdade());
-		System.out.println(admin.getNome());
-		System.out.println(admin.getNumeroContrato());
-
+		for (int i = 0; i < pessoas.length; i++) {
+			pessoas[i] = new Pessoa("nome", 12, "123", "rua");
+			System.out.println(pessoas[i].toString());
+		}
 	}
 
 }
