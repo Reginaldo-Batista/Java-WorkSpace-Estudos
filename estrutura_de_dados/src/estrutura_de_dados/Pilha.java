@@ -19,6 +19,7 @@ public class Pilha {
 	public void removeBloco() {
 		if (topo != null) {
 			this.topo = topo.getProximo();
+			this.numeroDeBlocos--;
 		}
 	}
 
