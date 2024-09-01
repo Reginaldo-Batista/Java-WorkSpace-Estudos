@@ -15,7 +15,7 @@ public class Lista {
 		Bloco aux = this.inicio;
 		int contador = 0;
 
-		while (aux != null && contador < indice - 1) {
+		while (aux != null && contador < indice) {
 			aux = aux.getProximo();
 			contador++;
 		}
@@ -40,7 +40,7 @@ public class Lista {
 			return;
 		}
 
-		Bloco aux = localizaBloco(indice);
+		Bloco aux = localizaBloco(indice - 1);
 
 		if (aux != null) {
 			Bloco novoBloco = new Bloco(valor, aux.getProximo());

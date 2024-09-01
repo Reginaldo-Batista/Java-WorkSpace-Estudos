@@ -10,6 +10,7 @@ public class Main {
 			lista.addBlocoInicio(i);
 		}
 		lista.printLista();
+		
 		System.out.println();
 		
 		// Estudo com pilha
