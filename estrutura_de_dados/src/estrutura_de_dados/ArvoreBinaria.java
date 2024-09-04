@@ -3,6 +3,20 @@ package estrutura_de_dados;
 public class ArvoreBinaria {
 	private No raiz = null;
 
+	// Não aceita valores iguais
+	public void adicionaNo(int valor) {
+		if (this.raiz == null) {
+			No novoNo = new No(valor);
+			this.raiz = novoNo;
+			return;
+		}
+		if (valor < this.raiz.getValor()) {
+			this.adicionaEsquerda(this.raiz, valor);
+		} else if (valor > this.raiz.getValor()) {
+			this.adicionaDireita(this.raiz, valor);
+		}
+	}
+
 	private void adicionaEsquerda(No no, int valor) {
 		if (no.getEsquerdo() == null) {
 			No novoNo = new No(valor);
@@ -29,20 +43,6 @@ public class ArvoreBinaria {
 			this.adicionaEsquerda(noDireito, valor);
 		} else if (valor > no.getValor()) {
 			this.adicionaDireita(noDireito, valor);
-		}
-	}
-
-	// Não aceita valores iguais
-	public void adicionaNo(int valor) {
-		if (this.raiz == null) {
-			No novoNo = new No(valor);
-			this.raiz = novoNo;
-			return;
-		}
-		if (valor < this.raiz.getValor()) {
-			this.adicionaEsquerda(this.raiz, valor);
-		} else if (valor > this.raiz.getValor()) {
-			this.adicionaDireita(this.raiz, valor);
 		}
 	}
 
