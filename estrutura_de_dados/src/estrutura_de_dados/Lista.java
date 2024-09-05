@@ -5,11 +5,6 @@ public class Lista {
 	private int numeroDeBlocos;
 	private Bloco inicio;
 
-	public Lista() {
-		this.numeroDeBlocos = 0;
-		this.inicio = null;
-	}
-
 	public Bloco localizaBloco(int indice) {
 
 		Bloco aux = this.inicio;
@@ -19,14 +14,14 @@ public class Lista {
 			aux = aux.getProximo();
 			contador++;
 		}
-		if (aux != null) {
+		if (aux != null && indice >= 0) {
 			return aux;
 		}
 		return null;
 
 	}
 
-	public void addBlocoInicio(int valor) {
+	public void addBloco(int valor) {
 
 		Bloco novoBloco = new Bloco(valor, this.inicio);
 		this.inicio = novoBloco;
@@ -36,7 +31,8 @@ public class Lista {
 
 	public void addBloco(int valor, int indice) {
 
-		if (indice <= 0 || indice >= this.numeroDeBlocos) {
+		if (indice == 0 || this.inicio == null) {
+			this.addBloco(valor);
 			return;
 		}
 
@@ -46,31 +42,35 @@ public class Lista {
 			Bloco novoBloco = new Bloco(valor, aux.getProximo());
 			aux.setProximo(novoBloco);
 			this.numeroDeBlocos++;
-			return;
-		}
-
-		if (this.inicio == null) {
-			this.addBlocoInicio(valor);
-			return;
 		}
 
 	}
 
-	public void addBlocoFim(int valor) {
+	public void removeBloco() {
 
-		if (this.inicio == null) {
-			this.addBlocoInicio(valor);
+		if (this.inicio != null) {
+			Bloco primeiroBloco = this.inicio;
+			this.inicio = primeiroBloco.getProximo();
+			this.numeroDeBlocos--;
+		}
+
+	}
+
+	public void removeBloco(int indice) {
+		
+		if (indice == 0) {
+			this.removeBloco();
 			return;
 		}
-
-		Bloco aux = this.inicio;
-
-		while (aux.getProximo() != null) {
-			aux = aux.getProximo();
+		
+		Bloco blocoAnterior = this.localizaBloco(indice - 1);
+		
+		if(blocoAnterior != null && blocoAnterior.getProximo() != null) {
+			Bloco blocoEscolhido = blocoAnterior.getProximo();
+			blocoAnterior.setProximo(blocoEscolhido.getProximo());
+			this.numeroDeBlocos--;
 		}
-		Bloco novoBloco = new Bloco(valor, aux.getProximo());
-		aux.setProximo(novoBloco);
-		this.numeroDeBlocos++;
+		
 	}
 
 	public void printLista() {
@@ -93,10 +93,6 @@ public class Lista {
 
 	public int getNumeroDeBlocos() {
 		return numeroDeBlocos;
-	}
-
-	public void setNumeroDeBlocos(int numeroDeBlocos) {
-		this.numeroDeBlocos = numeroDeBlocos;
 	}
 
 }

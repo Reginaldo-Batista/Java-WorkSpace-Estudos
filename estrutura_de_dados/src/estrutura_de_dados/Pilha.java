@@ -5,11 +5,6 @@ public class Pilha {
 	private int numeroDeBlocos;
 	private Bloco topo;
 
-	public Pilha() {
-		this.numeroDeBlocos = 0;
-		this.topo = null;
-	}
-
 	public void addBloco(int valor) {
 		Bloco novoBloco = new Bloco(valor, this.topo);
 		this.topo = novoBloco;
@@ -45,16 +40,8 @@ public class Pilha {
 		return numeroDeBlocos;
 	}
 
-	public void setNumeroDeBlocos(int numeroDeBlocos) {
-		this.numeroDeBlocos = numeroDeBlocos;
-	}
-
 	public Bloco getTopo() {
 		return topo;
-	}
-
-	public void setTopo(Bloco topo) {
-		this.topo = topo;
 	}
 
 }

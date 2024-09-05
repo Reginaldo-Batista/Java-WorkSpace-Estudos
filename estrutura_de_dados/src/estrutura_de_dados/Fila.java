@@ -6,12 +6,6 @@ public class Fila {
 	private Bloco inicio;
 	private Bloco fim;
 
-	public Fila() {
-		this.numeroDeBlocos = 0;
-		this.inicio = null;
-		this.fim = null;
-	}
-
 	public void addBloco(int valor) {
 
 		Bloco novoBloco = new Bloco(valor);
@@ -61,16 +55,8 @@ public class Fila {
 		return inicio;
 	}
 
-	public void setInicio(Bloco inicio) {
-		this.inicio = inicio;
-	}
-
 	public Bloco getFim() {
 		return fim;
-	}
-
-	public void setFim(Bloco fim) {
-		this.fim = fim;
 	}
 
 	public int getNumeroDeBlocos() {

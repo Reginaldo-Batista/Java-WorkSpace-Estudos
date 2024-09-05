@@ -5,13 +5,13 @@ import java.util.Random;
 public class Main {
 
 	public static void main(String[] args) {
-		
+
 		Random random = new Random();
 
 		// Estudo com lista
 		Lista lista = new Lista();
 		for (int i = 0; i < 5; i++) {
-			lista.addBlocoInicio(i);
+			lista.addBloco(i);
 		}
 		lista.printLista();
 
@@ -19,7 +19,7 @@ public class Main {
 
 		// Estudo com pilha
 		Pilha pilha = new Pilha();
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 5; i++) {
 			pilha.addBloco(i);
 		}
 		pilha.printPilha();
@@ -41,17 +41,17 @@ public class Main {
 		for (int i = 0; i < 10; i++) {
 			arvBinaria.adicionaNo(random.nextInt(10));
 		}
-		
+
 		System.out.printf("Pré-ordem: ");
 		arvBinaria.printPreOrder(arvBinaria.getRaiz());
-		
+
 		System.out.println();
-		
+
 		System.out.printf("Simetrico: ");
 		arvBinaria.printInOrder(arvBinaria.getRaiz());
 
 		System.out.println();
-		
+
 		System.out.printf("Pós-ordem: ");
 		arvBinaria.printPosOrder(arvBinaria.getRaiz());
 
