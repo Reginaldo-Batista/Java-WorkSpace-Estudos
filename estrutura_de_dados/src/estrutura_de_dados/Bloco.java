@@ -24,8 +24,9 @@ public class Bloco {
 		return this.valor;
 	}
 
-	public void setValor(int valor) {
+	public int setValor(int valor) {
 		this.valor = valor;
+		return this.valor;
 	}
 
 	public Bloco getProximo() {
@@ -38,7 +39,8 @@ public class Bloco {
 	
 	@Override
 	public String toString() {
-		return "Valor: " + this.valor + "\n";
+			return "Valor: " + this.valor + "\n";			
+		
 	}
 	
 }

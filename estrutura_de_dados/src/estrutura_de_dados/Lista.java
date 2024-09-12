@@ -44,19 +44,19 @@ public class Lista {
 
 	}
 
-	public void addBloco(int valor) {
+	public Bloco addBloco(int valor) {
 
 		Bloco novoBloco = new Bloco(valor, this.inicio);
 		this.inicio = novoBloco;
 		this.numeroDeBlocos++;
+		return novoBloco;
 
 	}
 
-	public void addBloco(int valor, int indice) {
+	public Bloco addBloco(int valor, int indice) {
 
 		if (indice == 0 || this.inicio == null) {
-			this.addBloco(valor);
-			return;
+			return this.addBloco(valor);
 		}
 
 		Bloco aux = localizaBloco(indice - 1);
@@ -65,25 +65,28 @@ public class Lista {
 			Bloco novoBloco = new Bloco(valor, aux.getProximo());
 			aux.setProximo(novoBloco);
 			this.numeroDeBlocos++;
+			return novoBloco;
 		}
+		return null;
 
 	}
 
-	public void removeBloco() {
+	public Bloco removeBloco() {
 
 		if (this.inicio != null) {
 			Bloco primeiroBloco = this.inicio;
 			this.inicio = primeiroBloco.getProximo();
 			this.numeroDeBlocos--;
+			return primeiroBloco;
 		}
+		return null;
 
 	}
 
-	public void removeBloco(int indice) {
+	public Bloco removeBloco(int indice) {
 
 		if (indice == 0) {
-			this.removeBloco();
-			return;
+			return this.removeBloco();
 		}
 
 		Bloco blocoAnterior = this.localizaBloco(indice - 1);
@@ -92,7 +95,9 @@ public class Lista {
 			Bloco blocoAlvo = blocoAnterior.getProximo();
 			blocoAnterior.setProximo(blocoAlvo.getProximo());
 			this.numeroDeBlocos--;
+			return blocoAlvo;
 		}
+		return null;
 
 	}
 
