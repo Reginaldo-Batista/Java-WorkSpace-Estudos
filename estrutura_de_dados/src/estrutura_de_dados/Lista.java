@@ -19,13 +19,17 @@ public class Lista {
 	}
 
 	public Bloco localizaBlocoRecursive(int indice) {
-		
-		if (indice <= 0 || this.inicio == null) {
+
+		if (indice <= 0) {
 			return this.inicio;
 		}
-		
+
 		Bloco aux = localizaBlocoRecursive(indice - 1);
-		return aux.getProximo();		
+
+		if (aux != null) {
+			return aux.getProximo();
+		}
+		return null;
 
 	}
 
