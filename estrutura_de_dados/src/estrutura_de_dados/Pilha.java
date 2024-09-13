@@ -2,20 +2,32 @@ package estrutura_de_dados;
 
 public class Pilha {
 
-	private int numeroDeBlocos;
 	private Bloco topo;
+	private int numeroDeBlocos;
 
-	public void addBloco(int valor) {
+	public Bloco getTopo() {
+		return topo;
+	}
+
+	public int getNumeroDeBlocos() {
+		return numeroDeBlocos;
+	}
+
+	public Bloco empilha(int valor) {
 		Bloco novoBloco = new Bloco(valor, this.topo);
 		this.topo = novoBloco;
 		this.numeroDeBlocos++;
+		return novoBloco;
 	}
 
-	public void removeBloco() {
+	public Bloco desempilha() {
 		if (topo != null) {
+			Bloco blocoRemovido = this.topo;
 			this.topo = topo.getProximo();
 			this.numeroDeBlocos--;
+			return blocoRemovido;
 		}
+		return null;
 	}
 
 	public void printPilha() {
@@ -34,14 +46,6 @@ public class Pilha {
 			aux = aux.getProximo();
 		}
 		System.out.println("null");
-	}
-
-	public int getNumeroDeBlocos() {
-		return numeroDeBlocos;
-	}
-
-	public Bloco getTopo() {
-		return topo;
 	}
 
 }

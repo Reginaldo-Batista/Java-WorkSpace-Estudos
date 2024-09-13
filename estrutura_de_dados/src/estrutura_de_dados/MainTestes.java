@@ -7,15 +7,9 @@ public class MainTestes {
 		// Estudo com lista
 		Lista lista = new Lista();
 		for (int i = 0; i < 5; i++) {
-			lista.addBlocoInicio(i);
+			lista.addBlocoEm(i, 0);
 		}
 		lista.printLista();
-		System.out.println(lista.localizaBlocoRecursive(-15));
-		System.out.println(lista.localizaBlocoRecursive(0));
-		System.out.println(lista.localizaBlocoRecursive(1));
-		System.out.println(lista.localizaBlocoRecursive(2));
-		System.out.println(lista.localizaBlocoRecursive(5));
-		System.out.println(lista.localizaBlocoRecursive(15));
 
 	}
 

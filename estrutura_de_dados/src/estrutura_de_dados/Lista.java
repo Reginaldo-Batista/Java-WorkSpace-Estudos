@@ -2,10 +2,22 @@ package estrutura_de_dados;
 
 public class Lista {
 
-	private int numeroDeBlocos;
 	private Bloco inicio;
+	private int numeroDeBlocos;
+
+	public Bloco getInicio() {
+		return inicio;
+	}
+
+	public int getNumeroDeBlocos() {
+		return numeroDeBlocos;
+	}
 
 	public Bloco localizaBloco(int indice) {
+
+		if (indice < 0) {
+			return null;
+		}
 
 		Bloco aux = this.inicio;
 		int contador = 0;
@@ -33,34 +45,13 @@ public class Lista {
 
 	}
 
-	public Bloco addBlocoForcedRecursive(int valor, int indice) {
-
-		if (indice == 0) {
-			return this.addBlocoInicio(valor);
-		}
-
-		Bloco blocoAnterior = this.localizaBloco(indice - 1);
-		if (blocoAnterior != null) {
-			return this.addBlocoEm(valor, indice);
-		}
-		this.addBlocoFim(0);
-		return this.addBlocoForcedRecursive(valor, indice);
-
-	}
-
-	public Bloco addBlocoInicio(int valor) {
-
-		Bloco novoBloco = new Bloco(valor, this.inicio);
-		this.inicio = novoBloco;
-		this.numeroDeBlocos++;
-		return novoBloco;
-
-	}
-
 	public Bloco addBlocoEm(int valor, int indice) {
 
 		if (indice == 0 || this.inicio == null) {
-			return this.addBlocoInicio(valor);
+			Bloco novoBloco = new Bloco(valor, this.inicio);
+			this.inicio = novoBloco;
+			this.numeroDeBlocos++;
+			return novoBloco;
 		}
 
 		Bloco aux = localizaBloco(indice - 1);
@@ -75,37 +66,32 @@ public class Lista {
 
 	}
 
-	public Bloco addBlocoFim(int valor) {
+	public Bloco addBlocoEmForcedRecursive(int valor, int indice) {
 
-		if (this.inicio == null) {
-			return this.addBlocoInicio(valor);
+		if (indice == 0) {
+			return this.addBlocoEm(valor, 0);
 		}
 
-		Bloco ultimoBloco = this.localizaBloco(this.numeroDeBlocos - 1);
-
-		Bloco novoBloco = new Bloco(valor);
-		ultimoBloco.setProximo(novoBloco);
-		this.numeroDeBlocos++;
-		return novoBloco;
-
-	}
-
-	public Bloco removeBlocoInicio() {
-
-		if (this.inicio != null) {
-			Bloco primeiroBloco = this.inicio;
-			this.inicio = primeiroBloco.getProximo();
-			this.numeroDeBlocos--;
-			return primeiroBloco;
+		Bloco blocoAnterior = this.localizaBloco(indice - 1);
+		if (blocoAnterior != null) {
+			return this.addBlocoEm(valor, indice);
 		}
-		return null;
+		this.addBlocoEm(0, this.numeroDeBlocos);
+		return this.addBlocoEmForcedRecursive(valor, indice);
 
 	}
 
 	public Bloco removeBlocoEm(int indice) {
 
+		if (this.inicio == null) {
+			return null;
+		}
+
 		if (indice == 0) {
-			return this.removeBlocoInicio();
+			Bloco primeiroBloco = this.inicio;
+			this.inicio = primeiroBloco.getProximo();
+			this.numeroDeBlocos--;
+			return primeiroBloco;
 		}
 
 		Bloco blocoAnterior = this.localizaBloco(indice - 1);
@@ -120,14 +106,57 @@ public class Lista {
 
 	}
 
-	public Bloco removeBlocoFim() {
-		Bloco ultimoBloco = this.localizaBloco(this.numeroDeBlocos - 1);
-		Bloco penultimoBloco = this.localizaBloco(this.numeroDeBlocos - 2);
-		penultimoBloco.setProximo(null);
-		return ultimoBloco;
+	public Bloco alteraBlocoEm(int valor, int indice) {
+
+		if (this.inicio == null) {
+			return null;
+		}
+
+		if (indice == 0) {
+			this.inicio.setValor(valor);
+			return this.inicio;
+		}
+
+		Bloco aux = this.localizaBloco(indice);
+
+		if (aux != null) {
+			aux.setValor(valor);
+			return aux;
+		}
+		return null;
+
 	}
 
-	public void trocaBloco(int indice1, int indice2) {
+	public void printLista() {
+
+		Bloco aux = this.inicio;
+
+		if (aux == null) {
+			System.out.println("Lista vazia!");
+			return;
+		}
+
+		System.out.printf("Existem %d blocos nesta lista:\n", this.numeroDeBlocos);
+		while (aux != null) {
+			System.out.printf(aux.getValor() + " -> ");
+			aux = aux.getProximo();
+		}
+		System.out.println("null");
+
+	}
+
+	public void printListaRecursivo(Bloco aux) {
+		if (aux == null) {
+			System.out.println("null");
+			return;
+		}
+		System.out.printf(aux.getValor() + " -> ");
+		aux = aux.getProximo();
+		printListaRecursivo(aux);
+	}
+
+	// Desconsiderar este método
+	private void trocaBloco(int indice1, int indice2) {
 
 		if (indice1 == indice2) {
 			return;
@@ -161,43 +190,6 @@ public class Lista {
 			aux1.setProximo(bloco2);
 
 		}
-
-	}
-
-	public void printListaRecursivo(Bloco aux) {
-		if (aux == null) {
-			System.out.println("null");
-			return;
-		}
-		System.out.printf(aux.getValor() + " -> ");
-		aux = aux.getProximo();
-		printListaRecursivo(aux);
-	}
-
-	public void printLista() {
-
-		Bloco aux = this.inicio;
-
-		if (aux == null) {
-			System.out.println("Lista vazia!");
-			return;
-		}
-
-		System.out.printf("Existem %d blocos nesta lista:\n", this.numeroDeBlocos);
-		while (aux != null) {
-			System.out.printf(aux.getValor() + " -> ");
-			aux = aux.getProximo();
-		}
-		System.out.println("null");
-
-	}
-
-	public int getNumeroDeBlocos() {
-		return numeroDeBlocos;
-	}
-
-	public Bloco getInicio() {
-		return this.inicio;
 	}
 
 }
