@@ -18,33 +18,33 @@ public class Lista {
 
 	}
 
-	public void addBlocoRecursivo(int valor, int indice, Bloco auxBloco) {
+	public Bloco localizaBlocoRecursive(int indice) {
 		
-		if (this.inicio == null) {
-			this.addBloco(99);
-			auxBloco = this.inicio;
-
-			if (indice == 0) {
-				this.inicio.setValor(valor);
-				return;
-			}
+		if (indice <= 0 || this.inicio == null) {
+			return this.inicio;
 		}
-
-		Bloco blocoAnterior = this.localizaBloco(indice - 1);
-
-		if (blocoAnterior != null) {
-			Bloco novoBloco = new Bloco(valor, blocoAnterior.getProximo());
-			blocoAnterior.setProximo(novoBloco);
-			return;
-		}
-		Bloco novoBloco = new Bloco(99);
-		auxBloco.setProximo(novoBloco);
-		auxBloco = novoBloco;
-		this.addBlocoRecursivo(valor, indice, auxBloco);
+		
+		Bloco aux = localizaBlocoRecursive(indice - 1);
+		return aux.getProximo();		
 
 	}
 
-	public Bloco addBloco(int valor) {
+	public Bloco addBlocoForcedRecursive(int valor, int indice) {
+
+		if (indice == 0) {
+			return this.addBlocoInicio(valor);
+		}
+
+		Bloco blocoAnterior = this.localizaBloco(indice - 1);
+		if (blocoAnterior != null) {
+			return this.addBlocoEm(valor, indice);
+		}
+		this.addBlocoFim(0);
+		return this.addBlocoForcedRecursive(valor, indice);
+
+	}
+
+	public Bloco addBlocoInicio(int valor) {
 
 		Bloco novoBloco = new Bloco(valor, this.inicio);
 		this.inicio = novoBloco;
@@ -53,10 +53,10 @@ public class Lista {
 
 	}
 
-	public Bloco addBloco(int valor, int indice) {
+	public Bloco addBlocoEm(int valor, int indice) {
 
 		if (indice == 0 || this.inicio == null) {
-			return this.addBloco(valor);
+			return this.addBlocoInicio(valor);
 		}
 
 		Bloco aux = localizaBloco(indice - 1);
@@ -71,7 +71,22 @@ public class Lista {
 
 	}
 
-	public Bloco removeBloco() {
+	public Bloco addBlocoFim(int valor) {
+
+		if (this.inicio == null) {
+			return this.addBlocoInicio(valor);
+		}
+
+		Bloco ultimoBloco = this.localizaBloco(this.numeroDeBlocos - 1);
+
+		Bloco novoBloco = new Bloco(valor);
+		ultimoBloco.setProximo(novoBloco);
+		this.numeroDeBlocos++;
+		return novoBloco;
+
+	}
+
+	public Bloco removeBlocoInicio() {
 
 		if (this.inicio != null) {
 			Bloco primeiroBloco = this.inicio;
@@ -83,10 +98,10 @@ public class Lista {
 
 	}
 
-	public Bloco removeBloco(int indice) {
+	public Bloco removeBlocoEm(int indice) {
 
 		if (indice == 0) {
-			return this.removeBloco();
+			return this.removeBlocoInicio();
 		}
 
 		Bloco blocoAnterior = this.localizaBloco(indice - 1);
@@ -99,6 +114,13 @@ public class Lista {
 		}
 		return null;
 
+	}
+
+	public Bloco removeBlocoFim() {
+		Bloco ultimoBloco = this.localizaBloco(this.numeroDeBlocos - 1);
+		Bloco penultimoBloco = this.localizaBloco(this.numeroDeBlocos - 2);
+		penultimoBloco.setProximo(null);
+		return ultimoBloco;
 	}
 
 	public void trocaBloco(int indice1, int indice2) {

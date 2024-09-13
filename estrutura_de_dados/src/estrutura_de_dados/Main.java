@@ -11,7 +11,7 @@ public class Main {
 		// Estudo com lista
 		Lista lista = new Lista();
 		for (int i = 0; i < 5; i++) {
-			lista.addBloco(i);
+			lista.addBlocoInicio(i);
 		}
 		lista.printLista();
 
