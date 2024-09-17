@@ -9,6 +9,10 @@ public class Lista {
 		return inicio;
 	}
 
+	public void setInicio(Bloco inicio) {
+		this.inicio = inicio;
+	}
+
 	public int getNumeroDeBlocos() {
 		return numeroDeBlocos;
 	}
