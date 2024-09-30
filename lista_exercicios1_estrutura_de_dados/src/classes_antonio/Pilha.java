@@ -1,17 +1,24 @@
 package classes_antonio;
 
 public class Pilha {
-    
-    Lista lista = new Lista();
 
-    public void push(int valor) {
+	Lista lista = new Lista();
 
-        this.lista.addElemento(valor,false);
+	public void push(int valor) {
+		this.lista.addElemento(valor, false);
+	}
 
-    }
+	public Bloco pop() {
+		return this.lista.removerElementoFim();
+	}
 
-    public Bloco pop() {
+	public Bloco topo() {
+		int tamanho = this.lista.tamanho();
+		Bloco topo = this.lista.localizarBloco(tamanho);
+		return topo;
+	}
 
-        return  this.lista.removerElementoFim();
-    }
+	public void printPilha() {
+		this.lista.printLista();
+	}
 }

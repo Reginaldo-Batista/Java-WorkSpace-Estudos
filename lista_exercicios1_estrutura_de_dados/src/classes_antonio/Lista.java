@@ -31,6 +31,7 @@ public class Lista {
 		if (this.tamanho() == 1) {
 			// this.inicio = null;
 			result = this.removerElementoInicio();
+
 		} else {
 
 			Bloco target = this.localizarBloco(this.tamanho() - 1);
@@ -55,7 +56,7 @@ public class Lista {
 
 	public boolean isVazia() {
 
-		return this.inicio == null;
+		return (this.inicio == null);
 	}
 
 	private Bloco addElementoInicio(int valor) {
@@ -76,7 +77,7 @@ public class Lista {
 		Bloco fim = this.localizarBloco(this.tamanho());
 
 		if (fim == null) {
-
+			// Se a lista estiver vazia:
 			novo = this.addElementoInicio(valor);
 		} else {
 
@@ -115,5 +116,22 @@ public class Lista {
 		}
 
 		return cont;
+	}
+
+	public void printLista() {
+
+		Bloco aux = this.inicio;
+
+		if (aux == null) {
+			System.out.println("Vazia!");
+			return;
+		}
+
+		System.out.printf("Existem %d bloco(s):\n", this.tamanho());
+		while (aux != null) {
+			System.out.printf(aux.valor + " -> ");
+			aux = aux.prox;
+		}
+		System.out.println("null");
 	}
 }
