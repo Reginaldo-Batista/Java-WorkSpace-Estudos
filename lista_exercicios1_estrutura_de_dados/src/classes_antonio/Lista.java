@@ -134,4 +134,14 @@ public class Lista {
 		}
 		System.out.println("null");
 	}
+
+	public Lista inverteLista() {
+		Bloco aux = this.inicio;
+		Lista listaInvert = new Lista();
+		while (aux != null) {
+			listaInvert.addElemento(aux.valor, true);
+			aux = aux.prox;
+		}
+		return listaInvert;
+	}
 }
