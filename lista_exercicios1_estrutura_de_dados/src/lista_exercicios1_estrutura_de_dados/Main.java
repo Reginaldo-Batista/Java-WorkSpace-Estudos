@@ -2,19 +2,24 @@ package lista_exercicios1_estrutura_de_dados;
 
 import classes_antonio.Fila;
 import classes_antonio.Pilha;
+import classes_antonio.PilhaFila;
 
 @SuppressWarnings("unused")
 public class Main {
 
 	public static void main(String[] args) {
 		
-		Pilha pilha = new Pilha();
+		PilhaFila pilha = new PilhaFila();
+		
 		pilha.push(5);
 		pilha.push(4);
 		pilha.push(3);
-		System.out.printf("Topo: " + pilha.topo() + "\n");
+		pilha.pop();
+		pilha.pop();
+		pilha.pop();
+		pilha.pop();
 		
-		pilha.printPilha();
+		pilha.printPilhaFila();
 		
 	}
 
