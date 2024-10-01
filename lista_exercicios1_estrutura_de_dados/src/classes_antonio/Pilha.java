@@ -21,4 +21,14 @@ public class Pilha {
 	public void printPilha() {
 		this.lista.printLista();
 	}
+	
+	public Fila filaEquivalente() {
+		Bloco aux = this.lista.inicio;
+		Fila fila = new Fila();
+		while (aux != null) {
+			fila.push(aux.valor);
+			aux = aux.prox;
+		}
+		return fila;
+	}
 }
