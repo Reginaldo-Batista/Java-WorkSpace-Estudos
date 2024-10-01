@@ -21,21 +21,25 @@ public class Lista {
 	}
 
 	public Bloco addElemento(int valor, int pos) {
-
+		
+		Bloco novo = null;
+		
 		if (pos <= 1) {
 			return this.addElemento(valor, true);
 		}
 
-		if (pos > this.tamanho()) {
-			return this.addElemento(valor, false);
-		}
-
-		Bloco novo = new Bloco();
 		Bloco blocoAnterior = this.localizarBloco(pos - 1);
-		novo.valor = valor;
-		novo.prox = blocoAnterior.prox;
-		blocoAnterior.prox = novo;
-		return novo;
+		
+		if (blocoAnterior != null) {
+			novo = new Bloco();
+			novo.valor = valor;
+			novo.prox = blocoAnterior.prox;
+			blocoAnterior.prox = novo;
+			return novo;
+		}
+		this.addElemento(0, false);
+		return this.addElemento(valor, pos);
+
 	}
 
 	public Bloco removerElementoFim() {
@@ -114,11 +118,9 @@ public class Lista {
 		int cont = 0;
 
 		while (aux != null && cont < pos - 1) {
-
 			cont++;
 			aux = aux.prox;
 		}
-
 		return aux;
 	}
 
