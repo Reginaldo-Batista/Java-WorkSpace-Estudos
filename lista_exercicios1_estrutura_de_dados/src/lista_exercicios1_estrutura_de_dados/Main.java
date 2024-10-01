@@ -12,12 +12,11 @@ public class Main {
 		lista.addElemento(2, false);
 		lista.addElemento(3, false);
 		lista.addElemento(4, false);
+		lista.addElemento(0, 4);
 		
 		lista.printLista();
 		
-		Lista listaInvert = lista.inverteLista();
 		
-		listaInvert.printLista();
 		
 	}
 

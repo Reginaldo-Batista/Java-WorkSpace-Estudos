@@ -20,6 +20,24 @@ public class Lista {
 		return novo;
 	}
 
+	public Bloco addElemento(int valor, int pos) {
+
+		if (pos <= 1) {
+			return this.addElemento(valor, true);
+		}
+
+		if (pos > this.tamanho()) {
+			return this.addElemento(valor, false);
+		}
+
+		Bloco novo = new Bloco();
+		Bloco blocoAnterior = this.localizarBloco(pos - 1);
+		novo.valor = valor;
+		novo.prox = blocoAnterior.prox;
+		blocoAnterior.prox = novo;
+		return novo;
+	}
+
 	public Bloco removerElementoFim() {
 
 		Bloco result = null;
