@@ -22,8 +22,6 @@ public class Lista {
 
 	public Bloco addElemento(int valor, int pos) {
 		
-		Bloco novo = null;
-		
 		if (pos <= 1) {
 			return this.addElemento(valor, true);
 		}
@@ -31,7 +29,7 @@ public class Lista {
 		Bloco blocoAnterior = this.localizarBloco(pos - 1);
 		
 		if (blocoAnterior != null) {
-			novo = new Bloco();
+			Bloco novo = new Bloco();
 			novo.valor = valor;
 			novo.prox = blocoAnterior.prox;
 			blocoAnterior.prox = novo;
