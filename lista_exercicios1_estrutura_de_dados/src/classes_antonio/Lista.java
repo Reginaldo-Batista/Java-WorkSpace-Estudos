@@ -32,13 +32,12 @@ public class Lista {
 			this.addElemento(0, false);
 			blocoAnterior = this.localizarBloco(pos - 1);
 		}
-		
+
 		Bloco novo = new Bloco();
 		novo.valor = valor;
 		novo.prox = blocoAnterior.prox;
 		blocoAnterior.prox = novo;
 		return novo;
-		
 
 	}
 
