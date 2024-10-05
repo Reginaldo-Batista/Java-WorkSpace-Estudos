@@ -166,33 +166,33 @@ public class Lista {
 
 	public void removeDuplicado() {
 
-		Bloco blocoReferencia = this.inicio;
-		Bloco blocoAnteriorAnalisado;
-		Bloco blocoAnalisado;
+		Bloco referencia = this.inicio;
+		Bloco anteriorAnalisado;
+		Bloco analisado;
 
-		while (blocoReferencia != null) {
+		while (referencia != null) {
 
-			blocoAnteriorAnalisado = blocoReferencia;
-			blocoAnalisado = blocoReferencia.prox;
+			anteriorAnalisado = referencia;
+			analisado = referencia.prox;
 
-			while (blocoAnalisado != null) {
+			while (analisado != null) {
 
-				if (blocoReferencia.valor == blocoAnalisado.valor) {
+				if (referencia.valor == analisado.valor) {
 
-					blocoAnteriorAnalisado.prox = blocoAnalisado.prox;
-					blocoAnalisado.prox = null; // Opcional
-					blocoAnalisado = blocoAnteriorAnalisado.prox;
+					anteriorAnalisado.prox = analisado.prox;
+					analisado.prox = null; // Opcional
+					analisado = anteriorAnalisado.prox;
 
 				} else {
 
-					blocoAnalisado = blocoAnalisado.prox;
-					blocoAnteriorAnalisado = blocoAnteriorAnalisado.prox;
+					analisado = analisado.prox;
+					anteriorAnalisado = anteriorAnalisado.prox;
 
 				}
 
 			}
 
-			blocoReferencia = blocoReferencia.prox;
+			referencia = referencia.prox;
 
 		}
 
