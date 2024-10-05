@@ -1,5 +1,6 @@
 package lista_exercicios1_estrutura_de_dados;
 
+import classes_antonio.Lista;
 import classes_antonio.ListaDupla;
 
 @SuppressWarnings("unused")
@@ -18,14 +19,23 @@ public class Main {
 //		
 //		lista.printLista();
 		
-		ListaDupla listaD = new ListaDupla();
+		Lista lista = new Lista();
 		
-		listaD.addElemento(5, true);
-		listaD.addElemento(3, true);
-		listaD.addElemento(1, true);
+		lista.addElemento(3, true);
+		lista.addElemento(3, true);
+		lista.addElemento(1, true);
+		lista.addElemento(5, true);
+		lista.addElemento(3, true);
+		lista.addElemento(5, true);
+		lista.addElemento(1, true);
+		lista.addElemento(1, true);
 		
-		listaD.printLista();
-		listaD.printListaInvertida();
+		lista.printLista();
+		
+		lista.removeDuplicado();
+		
+		lista.printLista();
+		
 	}
 
 }

@@ -163,4 +163,42 @@ public class Lista {
 		}
 		return listaInvert;
 	}
+
+	public void removeDuplicado() {
+
+		if (this.tamanho() < 2) {
+			return;
+		}
+
+		Bloco blocoSelecionado = this.inicio;
+		Bloco blocoAnteriorRemovido = this.inicio;
+		Bloco blocoRemovido = blocoAnteriorRemovido.prox;
+
+		while (blocoSelecionado.prox != null && blocoRemovido != null) {
+
+			while (blocoRemovido != null) {
+
+				if (blocoSelecionado.valor == blocoRemovido.valor) {
+					blocoAnteriorRemovido.prox = blocoRemovido.prox;
+					blocoRemovido.prox = null; // Opcional
+					blocoRemovido = null;
+
+					if (blocoAnteriorRemovido != null) {
+						blocoRemovido = blocoAnteriorRemovido.prox;
+					}
+
+				}
+
+			}
+
+			blocoSelecionado = blocoSelecionado.prox;
+			blocoAnteriorRemovido = blocoSelecionado;
+			
+			if (blocoAnteriorRemovido != null) {				
+				blocoRemovido = blocoAnteriorRemovido.prox;
+			}
+		}
+
+	}
+
 }
