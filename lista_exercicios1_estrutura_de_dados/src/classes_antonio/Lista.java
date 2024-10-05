@@ -166,43 +166,34 @@ public class Lista {
 
 	public void removeDuplicado() {
 
-		if (this.tamanho() < 2) {
-			return;
-		}
+		Bloco blocoReferencia = this.inicio;
+		Bloco blocoAnteriorAnalisado;
+		Bloco blocoAnalisado;
 
-		Bloco blocoSelecionado = this.inicio;
-		Bloco blocoAnteriorRemovido = this.inicio;
-		Bloco blocoRemovido = blocoAnteriorRemovido.prox;
+		while (blocoReferencia != null) {
 
-		while (blocoSelecionado.prox != null && blocoRemovido != null) {
+			blocoAnteriorAnalisado = blocoReferencia;
+			blocoAnalisado = blocoReferencia.prox;
 
-			while (blocoRemovido != null) {
+			while (blocoAnalisado != null) {
 
-				if (blocoSelecionado.valor == blocoRemovido.valor) {
-					blocoAnteriorRemovido.prox = blocoRemovido.prox;
-					blocoRemovido.prox = null; // Opcional
-					blocoRemovido = null;
+				if (blocoReferencia.valor == blocoAnalisado.valor) {
 
-					if (blocoAnteriorRemovido != null) {
-						blocoRemovido = blocoAnteriorRemovido.prox;
-					}
+					blocoAnteriorAnalisado.prox = blocoAnalisado.prox;
+					blocoAnalisado.prox = null; // Opcional
+					blocoAnalisado = blocoAnteriorAnalisado.prox;
 
 				} else {
-					blocoRemovido = blocoRemovido.prox;
-					blocoAnteriorRemovido = blocoAnteriorRemovido.prox;
+
+					blocoAnalisado = blocoAnalisado.prox;
+					blocoAnteriorAnalisado = blocoAnteriorAnalisado.prox;
+
 				}
 
 			}
 
-			blocoSelecionado = blocoSelecionado.prox;
-			blocoAnteriorRemovido = blocoSelecionado;
-			
-			if (blocoAnteriorRemovido != null) {				
-				blocoRemovido = blocoAnteriorRemovido.prox;
-			}
-			else {
-				break;
-			}
+			blocoReferencia = blocoReferencia.prox;
+
 		}
 
 	}

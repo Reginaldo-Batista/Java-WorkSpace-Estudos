@@ -23,7 +23,10 @@ public class Main {
 		
 		lista.addElemento(3, true);
 		lista.addElemento(3, true);
-		lista.addElemento(2, true);
+		lista.addElemento(3, true);
+//		lista.addElemento(2, true);
+//		lista.addElemento(2, true);
+//		lista.addElemento(2, true);
 
 		lista.printLista();
 		
