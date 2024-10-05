@@ -187,6 +187,9 @@ public class Lista {
 						blocoRemovido = blocoAnteriorRemovido.prox;
 					}
 
+				} else {
+					blocoRemovido = blocoRemovido.prox;
+					blocoAnteriorRemovido = blocoAnteriorRemovido.prox;
 				}
 
 			}
@@ -196,6 +199,9 @@ public class Lista {
 			
 			if (blocoAnteriorRemovido != null) {				
 				blocoRemovido = blocoAnteriorRemovido.prox;
+			}
+			else {
+				break;
 			}
 		}
 
