@@ -3,7 +3,7 @@ package classes_antonio;
 public class ListaRecursiva extends Lista {
 
 	@SuppressWarnings("unused")
-	public Bloco localizaBlocoRecursivo(int indice) {
+	private Bloco localizaBlocoRecursivo(int indice) {
 	
 		if (indice <= 0) {
 			return this.inicio;
@@ -19,7 +19,7 @@ public class ListaRecursiva extends Lista {
 	}
 	
 	@SuppressWarnings("unused")
-	public int tamanhoRecursivo(Bloco aux) {
+	private int tamanhoRecursivo(Bloco aux) {
 
 		if (aux == null) {
 			return 0;
