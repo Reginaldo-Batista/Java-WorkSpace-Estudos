@@ -132,6 +132,7 @@ public class Lista {
 
 			cont++;
 			aux = aux.prox;
+
 		}
 
 		return cont;

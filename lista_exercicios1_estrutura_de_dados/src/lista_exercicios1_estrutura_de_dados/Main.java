@@ -1,12 +1,20 @@
 package lista_exercicios1_estrutura_de_dados;
 
 import classes_antonio.Lista;
-import classes_antonio.ListaDupla;
+import classes_antonio.ListaRecursiva;
 
 @SuppressWarnings("unused")
 public class Main {
 
 	public static void main(String[] args) {
+		
+		ListaRecursiva ListaR = new ListaRecursiva();
+		
+//		ListaR.addElemento(0, false);
+//		ListaR.addElemento(0, false);
+//		ListaR.addElemento(0, false);
+		
+		System.out.println(ListaR.tamanhoRecursivo(ListaR.localizarBloco(1)));
 		
 //		Lista lista = new Lista();
 //		lista.addElemento(1, false);
